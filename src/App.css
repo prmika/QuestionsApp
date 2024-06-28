@@ -1,0 +1,64 @@
+#root {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  --answer-bg-color: rgb(38, 243, 38);
+  min-height: 100vh;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+footer {
+  margin-top: auto;
+}
+
+.questionButton {
+  font-size: 2em;
+  width: 10em;
+  height: 5em;
+}
+
+.answeredQuestionBox {
+  border-radius: 8px;
+  background-color: var(--answer-bg-color);
+  color: grey;
+  font-size: 2em;
+  width: 10em;
+  height: 5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.answer-color {
+  color: rgb(38, 243, 38);
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+.cardOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 1000;
+}
