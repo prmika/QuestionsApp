@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-function Card(props) {
+function QuestionCard(props) {
   const [isAnswerShown, setAnswerShown] = useState(false);
   const { question } = props;
 
@@ -35,4 +35,4 @@ function Card(props) {
   );
 }
 
-export default Card;
+export default QuestionCard;

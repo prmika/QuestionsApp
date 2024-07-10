@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"; // Ensure React, useEffect, and useState are imported
 import { questionsPack } from "./questions"; // Import questionsPack
-import Card from "./Card.jsx";
+import QuestionCard from "./QuestionCard.jsx";
 import "./App.css";
 
 function QuestionsTable(props) {
@@ -68,7 +68,7 @@ function QuestionsTable(props) {
       <button onClick={endGame}>End game</button>
       {cardState.isShown && (
         <div className="cardOverlay">
-          <Card
+          <QuestionCard
             question={cardState.selectedQuestion}
             onClose={closeCard}
             onAnswer={setQuestionAnswered}
