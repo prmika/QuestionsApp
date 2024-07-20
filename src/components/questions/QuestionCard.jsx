@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 function QuestionCard(props) {
   const [isAnswerShown, setAnswerShown] = useState(false);
   const { question } = props;
+  const { t } = useTranslation();
 
   const handlePoints = (isCorrect) => () => {
     props.onAnswer(isCorrect);
@@ -14,8 +16,8 @@ function QuestionCard(props) {
         <React.Fragment>
           <h1 style={{ color: `var(--answer-bg-color` }}>{question.answer}</h1>
           <div style={{ marginTop: "120px" }}>
-            <button onClick={handlePoints(true)}>Oikein</button>
-            <button onClick={handlePoints(false)}>Väärin</button>
+            <button onClick={handlePoints(true)}>{t("right")}</button>
+            <button onClick={handlePoints(false)}>{t("wrong")}</button>
           </div>
         </React.Fragment>
       ) : (
@@ -26,7 +28,7 @@ function QuestionCard(props) {
               style={{ marginLeft: "20px" }}
               onClick={() => setAnswerShown(true)}
             >
-              Vastaus
+              {t("show_answer")}
             </button>
           </div>
         </React.Fragment>

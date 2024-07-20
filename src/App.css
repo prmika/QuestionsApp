@@ -57,8 +57,28 @@ footer {
   right: 0;
   bottom: 0;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: rgba(0, 0, 0, 0.9);
   z-index: 1000;
+}
+
+.input {
+  padding: 20px;
+  border-radius: 10px;
+  border: 2px solid #007BFF;
+  outline: none;
+  font-size: 3em;
+  box-shadow: 0 2px 5px rgba(0, 123, 255, 0.2);
+}
+
+.input-button {
+  margin-left: 10px;
+  padding: 20px 30px;
+  border-radius: 10px;
+  font-size: 3em;
+  background-color: #007BFF;
+  color: white;
+  cursor: pointer;
 }

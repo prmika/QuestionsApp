@@ -1,0 +1,24 @@
+{
+    "add_team_alert": "Lisää vähintään yksi joukkue pelataksesi!",
+    "game_header": "Kysymyspeli",
+    "team_exists_alert": "Joukkue on jo lisätty! Valitse toinen nimi.",
+    "team_name_alert": "Joukkueen nimi ei voi olla tyhjä!",
+    "game_over": "Peli päättyi!",
+    "its_tie": "Tasapeli!",
+    "continuation_game": "Jatkopeliin menee:",
+    "winner_is": "Voittaja on",
+    "points": "Pisteet",
+    "creator": "Tämän pelin on luonut Miika Kauppinen ",
+    "create_teams": "Luo joukkueet",
+    "team_name": "Joukkueen nimi",
+    "add": "Lisää",
+    "start_game": "Aloita peli",
+    "end_game": "Lopeta peli",
+    "show_answer": "Näytä vastaus",
+    "right": "Oikein",
+    "wrong": "Väärin",
+    "add_points_to_team": "Lisää pisteitä joukkueelle",
+    "add_points": "Lisää pisteitä",
+
+    "":""
+}

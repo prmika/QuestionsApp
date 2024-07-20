@@ -1,0 +1,24 @@
+{
+    "add_team_alert": "Add at least one team to play!",
+    "game_header": "Cool questions game",
+    "team_exists_alert": "Team already exists! Choose another name.",
+    "team_name_alert": "Team name cannot be empty!",
+    "game_over": "Game over!",
+    "its_tie": "It's a tie!",
+    "continuation_game": "The following teams go to the playoffs:",
+    "winner_is": "The winner is",
+    "points": "Pisteet",
+    "creator": "This game is created by Miika Kauppinen ",
+    "create_teams": "Create teams",
+    "team_name": "Team name",
+    "add": "Add",
+    "start_game": "Start game",
+    "end_game": "End game",
+    "show_answer": "Show answer",
+    "right": "Right",
+    "wrong": "Wrong",
+    "add_points_to_team": "Add points to team",
+    "add_points": "Add points",
+
+    "":""
+}

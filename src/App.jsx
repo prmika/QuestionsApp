@@ -1,27 +1,45 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
-import QuestionsTable from "./QuestionsTable.jsx";
-import TeamSelect from "./TeamSelect.jsx";
+import QuestionsTable from "./components/questions/QuestionsTable.jsx";
+import TeamSelect from "./components/teams/TeamSelect.jsx";
+import AddPointsCard from "./AddPointsCard.jsx";
+import { useTranslation } from "react-i18next";
+import TeamsTable from "./components/teams/TeamsTable.jsx";
+import GameEnd from "./components/GameEnd.jsx";
 
 function App() {
+  const { t } = useTranslation();
   const [teams, setTeams] = useState([]);
   const [play, setPlay] = useState(false);
   const [endGame, setEndGame] = useState(false);
   const [winner, setWinner] = useState(null);
   const [teamPlaying, setTeamPlaying] = useState(null);
+  const [showAddPointsCard, setShowAddPointsCard] = useState(false);
+  const [teamToAddPoints, setTeamToAddPoints] = useState(null);
 
   const showEndGame = () => {
-    const winner = teams.reduce((prev, current) =>
-      prev.points > current.points ? prev : current
+    const highestPoints = teams.reduce(
+      (max, team) => Math.max(max, team.points),
+      0
     );
-    setWinner(winner);
+    const winners = teams.filter((team) => team.points === highestPoints);
+
+    if (winners.length > 1) {
+      setWinner(winners);
+    } else if (winners.length === 1) {
+      setWinner(winners[0]);
+    } else {
+      // No winners, should not happen
+      console.error("No winners found");
+      setWinner(null);
+    }
     setTeamPlaying(null);
     setPlay(false);
     setEndGame(true);
   };
   const startPlay = () => {
     if (teams.length === 0) {
-      alert("Lisää vähintään yksi joukkue pelataksesi!");
+      alert(t("add_team_alert"));
       return;
     }
     setPlay(true);
@@ -29,12 +47,27 @@ function App() {
     setTeamPlaying(teams[randomIndex]);
   };
 
-  const setPointsToTeam = (points, isAswerCorrect) => {
+  const setPointsToTeam = (points, isAswerCorrect, teamId) => {
+    if (teamId) {
+      // If teamId is provided, add points to that team
+      setTeams((prevTeams) => {
+        const newTeams = prevTeams.map((team) => {
+          if (team.id === teamId) {
+            return { ...team, points: Number(team.points) + Number(points) };
+          }
+          return team;
+        });
+        return newTeams;
+      });
+      setShowAddPointsCard(false);
+      return;
+    }
     if (isAswerCorrect) {
+      // If answer is correct, add points to the team playing
       setTeams((prevTeams) => {
         const newTeams = prevTeams.map((team) => {
           if (team.id === teamPlaying.id) {
-            return { ...team, points: team.points + points };
+            return { ...team, points: Number(team.points) + Number(points) };
           }
           return team;
         });
@@ -46,50 +79,31 @@ function App() {
       setTeamPlaying(teams[0]);
     }
   };
+  const showAddPoints = (id) => () => {
+    setShowAddPointsCard(true);
+    setTeamToAddPoints(teams.find((team) => team.id === id));
+  };
   const addTeam = (teamObj) => {
     if (teamObj.name.trim()) {
       if (teams.find((team) => team.name === teamObj.name)) {
-        alert("Joukkue on jo lisätty! Valitse toinen nimi.");
+        alert(t("team_exists_alert"));
         return;
       }
       setTeams((prevTeams) => [...prevTeams, { ...teamObj, points: 0 }]);
     } else {
-      alert("Joukkueen nimi ei voi olla tyhjä!");
+      alert(t("team_name_alert"));
     }
   };
 
   return (
     <>
       <div>
-        <h1>Cool questions game</h1>
-        <div
-          className="teams-list"
-          style={{
-            padding: "10px 20px",
-            fontSize: "16px",
-            position: "fixed",
-            top: "10px",
-            width: "auto",
-            right: "10px",
-          }}
-        >
-          <ul>
-            {teams.map((team) => (
-              <li
-                key={team.id}
-                style={{
-                  border:
-                    team?.id === teamPlaying?.id ? "2px solid green" : "none", // Conditional styling
-                  padding: "5px", // Add padding for visual enhancement
-                  margin: "5px", // Add margin for spacing between items
-                }}
-              >
-                <span>{team.name}</span>
-                <span>{team.points}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
+        {/* <h1>{t("game_header")}</h1> */}
+        <TeamsTable
+          teams={teams}
+          teamPlaying={teamPlaying}
+          showAddPoints={showAddPoints}
+        />
       </div>
       <div
         style={{
@@ -107,11 +121,7 @@ function App() {
               addTeam={addTeam}
             />
           ) : (
-            <div>
-              <h1>Peli päättyi!</h1>
-              <h2>Voittaja on {winner.name}!</h2>
-              <h3>Pisteet: {winner.points}</h3>
-            </div>
+            <GameEnd winner={winner} />
           )
         ) : (
           <QuestionsTable
@@ -121,11 +131,14 @@ function App() {
             }}
           />
         )}
+        {showAddPointsCard && (
+          <AddPointsCard team={teamToAddPoints} onAddPoints={setPointsToTeam} />
+        )}
       </div>
 
       <footer>
         <p className="read-the-docs">
-          This game is created by Miika Kauppinen{" "}
+          {t("creator")}
           <a
             href="https://github.com/prmika"
             target="_blank"

@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react"; // Ensure React, useEffect, and useState are imported
-import { questionsPack } from "./questions"; // Import questionsPack
+import React, { useEffect, useState } from "react";
+import { questionsPack } from "../../questions.js";
 import QuestionCard from "./QuestionCard.jsx";
-import "./App.css";
+import "../../App.css";
+import { useTranslation } from "react-i18next";
 
 function QuestionsTable(props) {
   const [questionStack, setQuestions] = useState(questionsPack);
@@ -10,6 +11,7 @@ function QuestionsTable(props) {
     selectedQuestion: null,
     stackIndex: null,
   });
+  const { t } = useTranslation();
   const closeCard = () => {
     setCardState({ isShown: false, selectedQuestion: null, stackIndex: null });
   };
@@ -65,7 +67,16 @@ function QuestionsTable(props) {
           </div>
         ))}
       </div>
-      <button onClick={endGame}>End game</button>
+      <div style={{
+          padding: "10px 20px",
+          fontSize: "16px",
+          cursor: "pointer",
+          position: "fixed",
+          bottom: "10px",
+          right: "10px",
+        }}>
+      <button className="input-button" style={{backgroundColor: "red"}} onClick={endGame}>{t("end_game")}</button>
+      </div>
       {cardState.isShown && (
         <div className="cardOverlay">
           <QuestionCard
