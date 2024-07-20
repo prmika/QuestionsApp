@@ -43,7 +43,7 @@ function TeamSelect(params) {
 
       <div
         style={{
-          padding: "10px 20px",
+          padding: "1em 2em",
           fontSize: "16px",
           cursor: "pointer",
           position: "fixed",

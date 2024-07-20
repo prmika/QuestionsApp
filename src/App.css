@@ -67,7 +67,7 @@ footer {
 .input {
   padding: 20px;
   border-radius: 10px;
-  border: 2px solid #007BFF;
+  border: 2px solid #007bff;
   outline: none;
   font-size: 3em;
   box-shadow: 0 2px 5px rgba(0, 123, 255, 0.2);
@@ -78,7 +78,16 @@ footer {
   padding: 20px 30px;
   border-radius: 10px;
   font-size: 3em;
-  background-color: #007BFF;
+  background-color: #007bff;
   color: white;
   cursor: pointer;
+}
+
+.question-card {
+  padding: 1em;
+  cursor: pointer;
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 10px;
 }

@@ -99,11 +99,13 @@ function App() {
     <>
       <div>
         {/* <h1>{t("game_header")}</h1> */}
-        <TeamsTable
-          teams={teams}
-          teamPlaying={teamPlaying}
-          showAddPoints={showAddPoints}
-        />
+        {play ? (
+          <TeamsTable
+            teams={teams}
+            teamPlaying={teamPlaying}
+            showAddPoints={showAddPoints}
+          />
+        ) : null}
       </div>
       <div
         style={{

@@ -22,6 +22,9 @@ function QuestionsTable(props) {
     questionStack[cardState.stackIndex].questions[
       cardState.qIndex
     ].show = false;
+    questionStack[cardState.stackIndex].questions[
+      cardState.qIndex
+    ].isCorrect = isAswerCorrect;
     // If all questions are answered, end the game
     const isGameFinished = questionStack.every((item) =>
       item.questions.every((q) => !q.show)
@@ -58,7 +61,7 @@ function QuestionsTable(props) {
                     {questionObj.points}
                   </button>
                 ) : (
-                  <div className="answeredQuestionBox">
+                  <div className="answeredQuestionBox" style={{backgroundColor: questionObj.isCorrect ? `var(--answer-bg-color)` : "red" }}>
                     {questionObj.points}
                   </div>
                 )}
@@ -68,7 +71,7 @@ function QuestionsTable(props) {
         ))}
       </div>
       <div style={{
-          padding: "10px 20px",
+          padding: "1em 2em",
           fontSize: "16px",
           cursor: "pointer",
           position: "fixed",

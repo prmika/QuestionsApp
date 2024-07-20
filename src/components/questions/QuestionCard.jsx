@@ -15,17 +15,21 @@ function QuestionCard(props) {
       {isAnswerShown ? (
         <React.Fragment>
           <h1 style={{ color: `var(--answer-bg-color` }}>{question.answer}</h1>
-          <div style={{ marginTop: "120px" }}>
-            <button onClick={handlePoints(true)}>{t("right")}</button>
-            <button onClick={handlePoints(false)}>{t("wrong")}</button>
+          <div className="question-card">
+            <button className="input-button" onClick={handlePoints(true)}>
+              {t("right")}
+            </button>
+            <button className="input-button" onClick={handlePoints(false)}>
+              {t("wrong")}
+            </button>
           </div>
         </React.Fragment>
       ) : (
         <React.Fragment>
           <h1>{question.question}</h1>
-          <div style={{ marginTop: "120px" }}>
+          <div className="question-card">
             <button
-              style={{ marginLeft: "20px" }}
+              className="input-button"
               onClick={() => setAnswerShown(true)}
             >
               {t("show_answer")}
