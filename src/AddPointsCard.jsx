@@ -22,7 +22,7 @@
             onChange={(e) => setPoints(e.target.value)}
           />
           <button className="input-button" onClick={handleAddPoints}>
-            {t("add_points")}
+            {t("add")}
           </button>
         </div>
       </div>

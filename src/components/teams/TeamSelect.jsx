@@ -31,6 +31,7 @@ function TeamSelect(params) {
           placeholder={t("team_name")}
           value={teamName}
           onChange={handleInputChange}
+          maxLength={15}
           className="input"
         />
         <button
@@ -43,12 +44,11 @@ function TeamSelect(params) {
 
       <div
         style={{
-          padding: "1em 2em",
-          fontSize: "16px",
+          padding: "1rem 1rem",
           cursor: "pointer",
           position: "fixed",
-          bottom: "10px",
-          right: "10px",
+          bottom: "1rem",
+          right: "1rem",
         }}
       >
         <button onClick={params.onPlay} className="input-button" style={{backgroundColor: "#26f326", color: "black"}}>{t("start_game")}</button>

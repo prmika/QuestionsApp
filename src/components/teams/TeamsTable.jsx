@@ -4,12 +4,13 @@ function TeamsTable({ teams, teamPlaying, showAddPoints }) {
     <div
       className="teams-list"
       style={{
-        padding: "10px 20px",
-        fontSize: "16px",
+        padding: "1rem 1rem",
+        fontSize: "1rem",
         position: "fixed",
-        top: "10px",
+        top: "1rem",
         width: "auto",
-        right: "10px",
+        right: "1rem ",
+        minWidth: "200px",
       }}
     >
       <ul>
@@ -24,8 +25,20 @@ function TeamsTable({ teams, teamPlaying, showAddPoints }) {
             key={team.id}
           >
             <li>
-              <span>{team.name}</span>
-              <span>{team.points}</span>
+              <span
+                style={{
+                  color: team?.id === teamPlaying?.id ? "white" : "grey",
+                }}
+              >
+                {team.name}
+              </span>
+              <span
+                style={{
+                  color: team?.id === teamPlaying?.id ? "blue" : "grey",
+                }}
+              >
+                {team.points}
+              </span>
             </li>
           </button>
         ))}

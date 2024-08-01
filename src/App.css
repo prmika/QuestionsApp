@@ -21,25 +21,17 @@ body {
 }
 
 footer {
-  margin-top: auto;
+  bottom: 1em;
 }
 
 .questionButton {
-  font-size: 2em;
-  width: 10em;
-  height: 5em;
+  font-size: 40px;
+  width: 12em;
+  height: 6em;
 }
 
-.answeredQuestionBox {
-  border-radius: 8px;
-  background-color: var(--answer-bg-color);
-  color: grey;
-  font-size: 2em;
-  width: 10em;
-  height: 5em;
+.questionsContainer {
   display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .answer-color {
@@ -69,7 +61,16 @@ footer {
   border-radius: 10px;
   border: 2px solid #007bff;
   outline: none;
-  font-size: 3em;
+  font-size: 3rem;
+  box-shadow: 0 2px 5px rgba(0, 123, 255, 0.2);
+}
+
+.input-small {
+  padding: 10px;
+  border-radius: 10px;
+  border: 2px solid #007bff;
+  outline: none;
+  font-size: 2rem;
   box-shadow: 0 2px 5px rgba(0, 123, 255, 0.2);
 }
 
@@ -77,17 +78,24 @@ footer {
   margin-left: 10px;
   padding: 20px 30px;
   border-radius: 10px;
-  font-size: 3em;
+  font-size: 2rem;
   background-color: #007bff;
   color: white;
   cursor: pointer;
 }
 
 .question-card {
-  padding: 1em;
+  padding: 1rem;
   cursor: pointer;
   position: fixed;
   left: 50%;
   transform: translateX(-50%);
   bottom: 10px;
+}
+
+@media (min-width: 1920px) {
+  .questionButton, .answeredQuestionBox {
+    padding: 1em 2em; /* Larger padding for larger screens */
+    font-size: 1.25rem; /* Larger text for readability */
+  }
 }

@@ -23,14 +23,14 @@ a:hover {
 }
 
 h1 {
-  font-size: 10em;
+  font-size: 8rem;
   font-weight: 700;
   margin: 0;
   padding: 0;
 }
 
 .teams-list ul {
-  list-style: none; 
+  list-style: none;
   margin: 0;
   display: flex;
   flex-direction: column;
@@ -38,7 +38,7 @@ h1 {
 
 .teams-list li {
   color: #646cff;
-  font-size: 2em;
+  font-size: 2rem;
   font-weight: bold;
   margin: auto;
   padding: 20px 20px;
@@ -49,8 +49,8 @@ h1 {
 button {
   border-radius: 8px;
   border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
   font-weight: 500;
   font-family: inherit;
   background-color: #1a1a1a;

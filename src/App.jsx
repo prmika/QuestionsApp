@@ -127,10 +127,12 @@ function App() {
           )
         ) : (
           <QuestionsTable
+            teams={teams}
             endGame={showEndGame}
             onAnswer={(points, isAnswerCorrect) => {
               setPointsToTeam(points, isAnswerCorrect);
             }}
+            onAddPoints={setPointsToTeam}
           />
         )}
         {showAddPointsCard && (

@@ -9,7 +9,7 @@ function GameEnd({ winner }) {
     return (
       <div>
         <h1>{t("its_tie")}</h1>
-        <h2 style={{ fontSize: "5em" }}>{t("continuation_game")} </h2>
+        <h2 style={{ fontSize: "5rem" }}>{t("continuation_game")} </h2>
         <div
           style={{
             display: "flex",
@@ -18,7 +18,7 @@ function GameEnd({ winner }) {
         >
           <h3
             style={{
-              fontSize: "5em",
+              fontSize: "5rem",
               color: `var(--answer-bg-color`,
               margin: "10px",
             }}
@@ -32,10 +32,10 @@ function GameEnd({ winner }) {
     return (
       <div>
         <h1>{t("game_over")}</h1>
-        <h2 style={{ fontSize: "5em", color: `var(--answer-bg-color` }}>
+        <h2 style={{ fontSize: "5rem", color: `var(--answer-bg-color` }}>
           {t("winner_is")} {winner.name}!
         </h2>
-        <h3 style={{ fontSize: "5em" }}>
+        <h3 style={{ fontSize: "5rem" }}>
           {t("points")}: {winner.points}
         </h3>
       </div>
