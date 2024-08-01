@@ -16,11 +16,11 @@ function QuestionsTable(props) {
   const closeCard = () => {
     setCardState({ isShown: false, selectedQuestion: null, stackIndex: null });
   };
-  const setQuestionAnswered = (isAswerCorrect, skipPoints) => {
+  const setQuestionAnswered = (isAswerCorrect) => {
     const points = cardState.selectedQuestion.points;
-    if (!skipPoints) {
-      props.onAnswer(points, isAswerCorrect);
-    }
+
+    props.onAnswer(points, isAswerCorrect);
+
     questionStack[cardState.stackIndex].questions[
       cardState.qIndex
     ].show = false;
