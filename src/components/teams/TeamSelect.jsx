@@ -34,10 +34,7 @@ function TeamSelect(params) {
           maxLength={15}
           className="input"
         />
-        <button
-          type="submit"
-          className="input-button"
-        >
+        <button type="submit" className="input-button">
           {t("add")}
         </button>
       </form>
@@ -51,7 +48,13 @@ function TeamSelect(params) {
           right: "1rem",
         }}
       >
-        <button onClick={params.onPlay} className="input-button" style={{backgroundColor: "#26f326", color: "black"}}>{t("start_game")}</button>
+        <button
+          onClick={params.onPlay}
+          className="input-button"
+          style={{ backgroundColor: "#26f326", color: "black" }}
+        >
+          {t("start_game")}
+        </button>
       </div>
     </div>
   );
